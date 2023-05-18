@@ -1,0 +1,20 @@
+{
+  "name": "nest-rabbit-custom",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && tsc && cp package*.json dist",
+    "pub": "npm publish ./dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@golevelup/nestjs-discovery": "^3.0.0",
+    "@nestjs/common": "^9.4.1",
+    "@types/amqplib": "^0.10.1",
+    "amqplib": "^0.10.3",
+    "typescript": "^5.0.4"
+  }
+}
