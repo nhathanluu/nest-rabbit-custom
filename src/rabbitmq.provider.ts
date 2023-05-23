@@ -1,4 +1,4 @@
-import { Connection } from "amqplib";
+import { Connection, Channel } from "amqplib";
 import * as amqp from 'amqplib';
 
 export const RabbitmqProviders = [
@@ -11,6 +11,15 @@ export const RabbitmqProviders = [
             );
 
             return connection;
+        }
+    },
+    {
+        provide: 'RABBIT_CHANNEL',
+        inject: ['RABBIT_CONNECTION'],
+        useFactory: async (connection: Connection) => {
+            const channel: Channel = await connection.createChannel();
+
+            return channel;
         }
     }
 ]
