@@ -14,8 +14,8 @@ export class RabbitmqService {
 
     async subcribe (config: any) {;
 
-        await this.channel.consume(config.topic, async  (msg) => {
-            await config.callback(msg.content.toString());
+        await this.channel.consume(config.meta.topic, async  (msg) => {
+            await config.discoveredMethod.handler(msg.content.toString());
 
             this.channel.ack(msg);
         })
